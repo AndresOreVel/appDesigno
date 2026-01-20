@@ -34,13 +34,13 @@ export class AppComponent implements OnInit {
     this.menu = this.navigationService.getMenu();
   }
 
+  get menuIcon(): string {
+    return this.menuActive ? '../assets/icons/icon-close.svg'
+      : '../assets/icons/icon-hamburger.svg';
+  }
+
   toggleButton() {
     this.menuActive = !this.menuActive;
-    if (this.currentImage === '../assets/icons/icon-hamburger.svg') {
-      this.currentImage = '../assets/icons/icon-close.svg';
-    } else {
-      this.currentImage = '../assets/icons/icon-hamburger.svg';
-    }
   }
 
   closeMenu() {
@@ -49,7 +49,7 @@ export class AppComponent implements OnInit {
 
   @HostListener('window:resize', [])
   onResize() {
-    if (window.innerWidth > 540 && this.menuActive) {
+    if (window.innerWidth > 540) {
       this.menuActive = false;
     }
   }

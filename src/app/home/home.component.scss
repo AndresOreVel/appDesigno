@@ -37,10 +37,6 @@
                 line-height: 1.2;
                 font-weight: 500;
                 max-inline-size: 16ch;
-
-                @include breakpoint-down (mobile) {
-                    text-align: center;
-                }
             }
 
             p {
@@ -51,6 +47,10 @@
             h2,
             p {
                 color: white;
+
+                @include breakpoint-down (mobile) {
+                    text-align: center;
+                }
             }
 
             button {

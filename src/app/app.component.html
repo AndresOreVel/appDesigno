@@ -2,7 +2,7 @@
     <section class="section" [class.open]="menuActive">
         <div class="toggle" (click)="toggleButton()">
             <img class="logo" src="../assets/images/logo-dark.png" alt="dark logo">
-            <img class="icon" [src]="currentImage" alt="open-close icon">
+            <img class="icon" [src]="menuIcon" alt="open-close icon">
         </div>
         <nav>
             <a *ngFor="let menuItem of menu.items" [routerLink]="menuItem.route" routerLinkActive="active" (click)="closeMenu()">

@@ -36,6 +36,7 @@
 
     @include breakpoint-down (mobile) {
         padding: $mobilePading;
+        padding-bottom: 3rem;
         gap: 5rem;
     }
 
