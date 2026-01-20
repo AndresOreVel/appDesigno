@@ -1,0 +1,61 @@
+<div class="home">
+    <section class="main__about">
+        <div class="main__about__content">
+            <h2>Award-winning custom designs and digital branding solutions</h2>
+
+            <p>With over 10 years in the industry, we are experienced in creating fully responsive websites, app design,
+                and engaging brand experiences. Find out more about our services.</p>
+
+            <button type="button" (click)="goToCompany()">Learn more</button>
+        </div>
+        <img class="bg" src="../../assets/images/patterns/bg-pattern-hero-desktop.svg" alt="background pattern image">
+        <img src="../../assets/images/home/image-hero-phone.png" alt="hero-phone image">
+    </section>
+    <section class="main__design">
+        <img class="leaf" src="../../assets/images/patterns/bg-pattern-leaf.svg" alt="leaf image">
+        <div class="main__design__content">
+            <div class="main__design__content--web" (click)="goToDesign('web')">
+                <h2>Web Design</h2>
+                <p>View Projects</p>
+            </div>
+            <div class="main__design__content--app" (click)="goToDesign('app')">
+                <h2>App Design</h2>
+                <p>View Projects</p>
+            </div>
+            <div class="main__design__content--graphic" (click)="goToDesign('graphic')">
+                <h2>Graphic Design</h2>
+                <p>View Projects</p>
+            </div>
+        </div>
+    </section>
+    <section class="main__characters">
+        <img class="leaf2" src="../../assets/images/patterns/bg-pattern-leaf.svg" alt="leaf image">
+        <div class="main__characters__content">
+            <div class="main__characters__content--passionate">
+                <img src="../../assets/images/home/illustration-passionate.svg" alt="passionate image">
+                <h3>Passionate</h3>
+                <p>Each project starts with an in-depth brand research to ensure we only create products that serve a
+                    purpose.
+                    We merge
+                    art, design, and technology into exciting new solutions.</p>
+            </div>
+            <div class="main__characters__content--resourceful">
+                <img src="../../assets/images/home/illustration-resourceful.svg" alt="resourceful image">
+                <h3>Resourceful</h3>
+                <p>Everything that we do has a strategic purpose. We use an agile approach in all of our projects and
+                    value
+                    customer
+                    collaboration. It guarantees superior results that fulfill our clients’ needs.</p>
+            </div>
+            <div class="main__characters__content--friendly">
+                <img src="../../assets/images/home/illustration-friendly.svg" alt="friendly image">
+                <h3>Friendly</h3>
+                <p>We are a group of enthusiastic folks who know how to put people first. Our success depends on our
+                    customers,
+                    and we
+                    strive to give them the best experience a company can provide.</p>
+            </div>
+        </div>
+    </section>
+</div>
+<app-touch></app-touch>

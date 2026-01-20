@@ -1,0 +1,221 @@
+@use '../sass/variables' as *;
+@use '../sass/utilities' as *;
+@use '../sass/mixins' as *;
+
+header {
+    padding: $desktopPading;
+
+    @include breakpoint-down (mobile) {
+        padding: $mobilePading;
+    }
+}
+
+footer {
+    padding: $desktopPading;
+    background-color: $footerbg;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+    @include breakpoint-down (mobile) {
+        padding: $mobilePading;
+    }
+
+    .ftr {
+        padding: 4rem 0;
+
+        @include breakpoint-down (mobile) {
+            padding: 5rem 0 2rem 0;
+        }
+    }
+}
+
+@mixin underline-hover($color) {
+    position: relative;
+    color: $color;
+
+    &::after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: .094rem;
+        left: 50%;
+        bottom: -.4rem;
+        background-color: $color;
+        transform: translateX(-50%) scaleX(0);
+        transform-origin: center;
+        transition: transform 0.3s ease;
+    }
+
+    &:hover::after {
+        transform: translateX(-50%) scaleX(1);
+    }
+}
+
+.section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+
+    @include breakpoint-down (mobile) {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .light {
+        max-width: 100%;
+    }
+
+    .toggle {
+        display: flex;
+        cursor: pointer;
+        border-radius: 1rem;
+
+        @include breakpoint-down (mobile) {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        .logo {
+            width: 200px;
+            height: auto;
+        }
+
+        .icon {
+            display: none;
+
+            @include breakpoint-down (mobile) {
+                display: flex;
+                align-items: center;
+                width: 20px;
+                height: 20px;
+                background-color: black;
+            }
+        }
+    }
+
+    &:nth-child(2) {
+        padding-bottom: 2rem;
+    }
+
+    nav {
+        display: flex;
+        align-items: center;
+        gap: 2.5rem;
+
+        @include breakpoint-down (mobile) {
+            position: fixed;
+            top: 5%;
+            left: 0;
+            width: 100%;
+            height: 40vh;
+
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            gap: 1.5rem;
+
+            background-color: black;
+            z-index: 1000;
+
+            transform: translateX(-100%);
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+
+            transition:
+                transform 0.4s ease,
+                opacity 0.3s ease,
+                visibility 0.3s ease;
+        }
+
+        a {
+            @extend %nav-a;
+
+            @include breakpoint-down (mobile) {
+                display: block;
+                width: 100%;
+            }
+
+            .span__header {
+                @include underline-hover(black);
+
+                @include breakpoint-down (mobile) {
+                    color: white;
+                }
+            }
+
+            .span__footer {
+                @include underline-hover(white)
+            }
+        }
+    }
+
+    &__address,
+    &__office {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        color: white;
+
+        @include breakpoint-down (mobile) {
+            opacity: .5;
+            align-items: center;
+        }
+
+        h4 {
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+    }
+
+    &__icons {
+        display: flex;
+        gap: 1rem;
+
+        img {
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+        }
+    }
+}
+
+.section.open {
+
+    @include breakpoint-down (mobile) {
+        nav {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            transform: translateX(0);
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+        }
+    }
+}
+
+.menu-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 999;
+}
+
+.menu-overlay.open {
+    opacity: 1;
+    pointer-events: auto;
+}

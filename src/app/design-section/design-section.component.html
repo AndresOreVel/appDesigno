@@ -1,0 +1,16 @@
+<section class="design__section">
+    <div class="design__section__header">
+        <h2>{{ title }}</h2>
+        <p>{{ subtitle }}</p>
+    </div>
+    <div class="design__section__content">
+        <article class="card" *ngFor="let item of items">
+            <img [src]="item.image" [alt]="item.title">
+            <div class="card__text">
+                <h3>{{ item.title }}</h3>
+                <p>{{ item.description }}</p>
+            </div>
+        </article>
+    </div>
+</section>
+<app-touch></app-touch>

@@ -1,0 +1,43 @@
+%config {
+    cursor: pointer;
+    padding: 1rem 1.5rem;
+    line-height: 2;
+    text-transform: uppercase;
+    letter-spacing: .063rem;
+    font-weight: 500;
+    font-size: .938rem;
+    white-space: nowrap;
+    border-radius: 8px;
+}
+
+%button-shared {
+    max-width: 170px;
+    @extend %config;
+}
+
+%button-summary {
+    width: 100%;
+    @extend %config;
+}
+
+%nav-a {
+    font-size: .875rem;
+    font-weight: 400;
+    line-height: .875rem;
+    letter-spacing: .125rem;
+    text-transform: uppercase;
+}
+
+%flex-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+%company-flex {
+    display: flex;
+    border-radius: 1rem;
+    overflow: hidden;
+}

@@ -1,0 +1,113 @@
+@use '../../sass/variables' as *;
+@use '../../sass/mixins' as *;
+
+.design__section {
+    padding: $desktopPading;
+    display: flex;
+    flex-direction: column;
+    gap: 8rem;
+
+    @include breakpoint-down (mobile) {
+        padding: $mobilePading;
+        padding-bottom: 7rem;
+    }
+
+    &__header {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 1.5rem;
+        background-color: $orangebg;
+        color: white;
+        border-radius: 1rem;
+        padding: 4rem 7rem;
+
+        @include breakpoint-down (mobile) {
+            padding: 4rem 5rem;
+        }
+
+        h2 {
+            font-size: 3rem;
+            line-height: 1.2;
+            font-weight: 500;
+
+            @include breakpoint-down (mobile) {
+                text-align: center;
+            }
+        }
+
+        p {
+            line-height: 1.5625;
+
+            @include breakpoint-down (mobile) {
+                text-align: center;
+            }
+        }
+    }
+
+    &__content {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 1.875rem;
+        padding-bottom: 15rem;
+
+        @include breakpoint-down (mobile) {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card {
+            display: flex;
+            flex-direction: column;
+            border-radius: 1rem;
+            cursor: pointer;
+            border-radius: 1rem;
+            overflow: hidden;
+
+            &:hover {
+                .card__text {
+                    background-color: $orangebg;
+                }
+
+                h3,
+                p {
+                    color: white;
+                }
+            }
+
+            img {
+                width: 100%;
+                height: auto;
+                object-fit: cover;
+            }
+
+            &__text {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                padding: 2rem;
+                gap: 1rem;
+                background-color: $lighorange;
+                text-align: center;
+                height: 100%;
+                transition: background-color .2s ease-in-out;
+
+                h3 {
+                    color: $designhdr;
+                    text-transform: uppercase;
+                    font-size: 1.25rem;
+                    letter-spacing: .3125rem;
+                    font-weight: 500;
+                    transition: color .2s ease-in-out;
+                }
+
+                p {
+                    line-height: 1.625;
+                    transition: color .2s ease-in-out;
+                }
+            }
+        }
+    }
+}

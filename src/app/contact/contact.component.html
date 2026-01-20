@@ -1,0 +1,53 @@
+<div class="contact">
+    <div class="contact__container">
+        <img src="../../assets/images/patterns/bg-pattern-hero-desktop.svg" alt="background pattern image">
+        <div class="content">
+            <h3>Contact Us</h3>
+            <p>Ready to take it to the next level? Let’s talk about your project or idea and find out how
+                we can help your business grow. If you are looking for unique digital experiences that’s
+                relatable to your users, drop us a line.</p>
+        </div>
+        <form #contactForm="ngForm" (ngSubmit)="onSubmit(contactForm)" class="form">
+            <div class="form__input">
+                <input [(ngModel)]="name" #nameCtrl="ngModel" type="text" id="name" name="name" placeholder="Name" required>
+                <span class="error shake" *ngIf="nameCtrl.invalid && nameCtrl.touched">Can't be empty</span>
+            </div>
+            <div class="form__input">
+                <input [(ngModel)]="email" #emailCtrl="ngModel" type="email" id="email" name="email" placeholder="Email Adress" required>
+                <span class="error shake" *ngIf="!isEmailValid() && emailCtrl.touched">Incorrect format</span>
+            </div>
+            <div class="form__input">
+                <input [(ngModel)]="phone" #phoneCtrl="ngModel" type="tel" id="phone" name="phone" placeholder="Phone" required>
+                <span class="error shake" *ngIf="phoneCtrl.invalid && phoneCtrl.touched">Can't be empty</span>
+            </div>
+            <div class="form__input">
+                <textarea [(ngModel)]="message" #messageCtrl="ngModel" name="message" id="message" placeholder="Your Message" required></textarea>
+                <span class="error shake" *ngIf="messageCtrl.invalid && messageCtrl.touched">Can't be empty</span>
+            </div>
+            <div class="form__button">
+                <button [disabled]="contactForm.invalid" type="submit">Submit</button>
+            </div>
+        </form>
+    </div>
+    <section class="locations">
+        <img class="leaf" src="../../assets/images/patterns/bg-pattern-leaf.svg" alt="leaf image">
+        <div class="locations__item">
+            <img class="circle" src="../../assets/images/patterns/bg-pattern-small-circle.svg" alt="small circle image">
+            <img src="../../assets/images/locations/illustration-canada.svg" alt="canada image">
+            <h3 class="locations__item__title">Canada</h3>
+            <button type="button" (click)="goToLocation()">See location</button>
+        </div>
+        <div class="locations__item">
+            <img class="circle" src="../../assets/images/patterns/bg-pattern-small-circle.svg" alt="small circle image">
+            <img src="../../assets/images/locations/illustration-australia.svg" alt="australia image">
+            <h3 class="locations__item__title">Australia</h3>
+            <button type="button" (click)="goToLocation()">See location</button>
+        </div>
+        <div class="locations__item">
+            <img class="circle" src="../../assets/images/patterns/bg-pattern-small-circle.svg" alt="small circle image">
+            <img src="../../assets/images/locations/illustration-united-kingdom.svg" alt="uk image">
+            <h3 class="locations__item__title">United Kingdom</h3>
+            <button type="button" (click)="goToLocation()">See location</button>
+        </div>
+    </section>
+</div>

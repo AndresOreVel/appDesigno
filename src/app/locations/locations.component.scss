@@ -1,0 +1,86 @@
+@use '../../sass/utilities' as *;
+@use '../../sass/variables' as *;
+@use '../../sass/mixins' as *;
+
+.locations {
+    padding: $desktopPading;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding-bottom: 25rem;
+
+    @include breakpoint-down (mobile) {
+        padding: $mobilePading;
+        padding-bottom: 20rem;
+    }
+
+    .box {
+        display: flex;
+        gap: 2rem;
+        overflow: hidden;
+
+        @include breakpoint-down (mobile) {
+            flex-direction: column;
+        }
+
+        .item,
+        img {
+            border-radius: 1rem;
+        }
+
+        .item {
+            background-color: $lighorange;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            width: 100%;
+            padding: 4rem 5rem;
+            gap: 2rem;
+
+            @include breakpoint-down (mobile) {
+                padding: 4rem 2rem;
+            }
+
+            h3 {
+                color: $designhdr;
+                font-size: 3rem;
+                font-weight: 500;
+            }
+
+            &__content {
+                display: flex;
+                justify-content: space-between;
+                gap: 4rem;
+
+                @include breakpoint-down (mobile) {
+                    flex-direction: column;
+                    gap: 2rem;
+                }
+
+                &__site,
+                &__contact {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 0.4rem;
+                }
+            }
+        }
+
+        &:nth-child(2) {
+            flex-direction: row-reverse;
+
+            @include breakpoint-down (mobile) {
+                flex-direction: column;
+            }
+        }
+
+        .map {
+            width: 100%;
+            border-radius: 1rem;
+
+            @include breakpoint-down (mobile) {
+                height: 400px;
+            }
+        }
+    }
+}

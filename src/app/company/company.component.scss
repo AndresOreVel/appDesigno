@@ -1,0 +1,195 @@
+@use '../../sass/variables' as *;
+@use '../../sass/utilities' as *;
+@use '../../sass/mixins' as *;
+
+@mixin content-styles($bg-color, $padding: 0 6rem) {
+    background-color: $bg-color;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2rem;
+    padding: $padding;
+
+    @include breakpoint-down (mobile) {
+        text-align: center;
+    }
+
+    h2 {
+        color: $designhdr;
+        font-size: 3rem;
+        font-weight: 500;
+    }
+
+    p {
+        line-height: 1.625;
+        font-weight: 400;
+    }
+}
+
+.company {
+    padding: $desktopPading;
+    padding-bottom: 20rem;
+    display: flex;
+    flex-direction: column;
+    gap: 9rem;
+    position: relative;
+
+    @include breakpoint-down (mobile) {
+        padding: $mobilePading;
+        gap: 5rem;
+    }
+
+    .about {
+        @extend %company-flex;
+
+        @include breakpoint-down (mobile) {
+            flex-direction: column;
+        }
+
+        &__content {
+            @include content-styles($orangebg, 0 1.5rem 0 6rem);
+            position: relative;
+
+            @include breakpoint-down (mobile) {
+                padding: 2rem;
+            }
+
+            .pattern {
+                position: absolute;
+                left: 0.2rem;
+                top: -8rem;
+                opacity: 0.9;
+            }
+
+            h2,
+            p {
+                color: white;
+            }
+
+            h2 {
+                font-size: 3rem;
+                font-weight: 500;
+            }
+
+            p {
+                line-height: 1.5625;
+                font-weight: 400;
+            }
+        }
+    }
+
+    .leaf1 {
+        position: absolute;
+        top: 33rem;
+        left: -1rem;
+        z-index: -1;
+
+        @include breakpoint-down (mobile) {
+            display: none;
+        }
+    }
+
+    .talent {
+        @extend %company-flex;
+        flex-direction: row-reverse;
+
+        @include breakpoint-down (mobile) {
+            flex-direction: column;
+        }
+
+        &__content {
+            @include content-styles($lighorange);
+
+            @include breakpoint-down (mobile) {
+                padding: 2rem;
+            }
+        }
+    }
+
+    .deal {
+        @extend %company-flex;
+
+        @include breakpoint-down (mobile) {
+            flex-direction: column;
+            padding-bottom: 5rem;
+        }
+
+        &__content {
+            @include content-styles($lighorange);
+
+            @include breakpoint-down (mobile) {
+                padding: 2rem;
+            }
+        }
+    }
+
+    .locations {
+        display: flex;
+        justify-content: space-between;
+        padding: 5rem 0;
+        max-width: 100%;
+        position: relative;
+
+        @include breakpoint-down (mobile) {
+            flex-direction: column;
+            gap: 3rem;
+            padding: 0 0 15rem 0;
+        }
+
+        .leaf {
+            position: absolute;
+            right: -25rem;
+            bottom: -13rem;
+
+            @include breakpoint-down (mobile) {
+                display: none;
+            }
+        }
+
+        &__item {
+            max-width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+            position: relative;
+
+            img {
+                max-width: 100%;
+            }
+
+            .circle {
+                position: absolute;
+            }
+
+            &__title {
+                font-weight: 500;
+                line-height: 1.5;
+            }
+
+            button {
+                @extend %button-shared;
+                border: none;
+                background-color: $designhdr;
+                color: white;
+                font-weight: 700;
+
+                &:hover {
+                    background-color: $orangehover;
+                    transition: all .2s ease-in-out;
+                }
+            }
+        }
+    }
+
+    .leaf2 {
+        position: absolute;
+        bottom: -15rem;
+        right: -2rem;
+        z-index: -1;
+
+        @include breakpoint-down (mobile) {
+            display: none;
+        }
+    }
+}

@@ -1,0 +1,46 @@
+<header>
+    <section class="section" [class.open]="menuActive">
+        <div class="toggle" (click)="toggleButton()">
+            <img class="logo" src="../assets/images/logo-dark.png" alt="dark logo">
+            <img class="icon" [src]="currentImage" alt="open-close icon">
+        </div>
+        <nav>
+            <a *ngFor="let menuItem of menu.items" [routerLink]="menuItem.route" routerLinkActive="active" (click)="closeMenu()">
+                <span class="span__header">{{ menuItem.name }}</span>
+            </a>
+        </nav>
+    </section>
+</header>
+<div class="menu-overlay" [class.open]="menuActive" (click)="toggleButton()"></div>
+<main>
+    <router-outlet></router-outlet>
+</main>
+<footer>
+    <section class="section ftr">
+        <img class="light" src="../assets/images/logo-light.png" alt="light logo">
+        <nav>
+            <a *ngFor="let menuItem of menu.items" [routerLink]="menuItem.route" routerLinkActive="active">
+                <span class="span__footer">{{ menuItem.name }}</span>
+            </a>
+        </nav>
+    </section>
+    <section class="section">
+        <div class="section__address">
+            <h4>Designo Central Office</h4>
+            <p class="description">3886 Wellington Street</p>
+            <p class="description">Toronto, Ontario M9C 3J5</p>
+        </div>
+        <div class="section__office">
+            <h4>Contact Us (Central Office)</h4>
+            <p>P : +1 253-863-8967</p>
+            <p>M : contact&#64;designo.co</p>
+        </div>
+        <div class="section__icons">
+            <img src="../assets/icons/facebook.png" alt="facebook icon">
+            <img src="../assets/icons/youtube.png" alt="youtube icon">
+            <img src="../assets/icons/x.png" alt="x icon">
+            <img src="../assets/icons/pinterest.png" alt="pinterest icon">
+            <img src="../assets/icons/instagram.png" alt="instagram icon">
+        </div>
+    </section>
+</footer>
