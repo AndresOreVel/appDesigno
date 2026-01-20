@@ -34,7 +34,8 @@ export class LocationsComponent implements AfterViewInit {
 
   async ngAfterViewInit() {
     if (isPlatformBrowser(this.platformId)) {
-      const L = await import('leaflet');
+      const leafletModule = await import('leaflet');
+      const L = leafletModule.default;
 
       delete (L.Icon.Default.prototype as any)._getIconUrl;
 
